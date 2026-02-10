@@ -1,29 +1,182 @@
 <template>
-  <h1>Form1</h1>
+  <form class="mx-auto">
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Place Name</label
+        >
+        <input
+          type="text"
+          id="place_name"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place name..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Place Description</label
+        >
+        <input
+          type="text"
+          id="description"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place description..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Latitude</label
+        >
+        <input
+          type="text"
+          id="latitude"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place latitude..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Longitude</label
+        >
+        <input
+          type="text"
+          id="longitude"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place longitude..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Price Level</label
+        >
+        <input
+          type="text"
+          id="Price_Level"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place Price Level..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Average Cost</label
+        >
+        <input
+          type="text"
+          id="average_cost"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place average cost..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Opening Time</label
+        >
+        <input
+          type="text"
+          id="opening_time"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place opening time..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Closing Time</label
+        >
+        <input
+          type="text"
+          id="closing_time"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place closing time..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Category</label
+        >
+        <input
+          type="text"
+          id="category"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place category..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading">Rating</label>
+        <input
+          type="text"
+          id="category"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place rating..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >visit duration</label
+        >
+        <input
+          type="text"
+          id="visit"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place visit duration..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading"
+          >Facebook</label
+        >
+        <input
+          type="text"
+          id="facebook"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place facebook..."
+          required
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place email..."
+          required
+        />
+      </div>
+      <div class="mb-5 col-span-2">
+        <label for="Place name" class="block mb-2.5 text-sm font-medium text-heading">number</label>
+        <input
+          type="text"
+          id="number"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Enter place number..."
+          required
+        />
+      </div>
+    </section>
 
-  <form class="max-w-sm mx-auto">
-    <div class="mb-5">
-      <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-      <input
-        type="email"
-        id="email"
-        class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-        placeholder="name@flowbite.com"
-        required
-      />
-    </div>
-    <div class="mb-5">
-      <label for="password" class="block mb-2.5 text-sm font-medium text-heading"
-        >Your password</label
-      >
-      <input
-        type="password"
-        id="password"
-        class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-        placeholder="••••••••"
-        required
-      />
-    </div>
     <label for="remember" class="flex items-center mb-5">
       <input
         id="remember"
