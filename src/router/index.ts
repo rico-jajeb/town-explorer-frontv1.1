@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import NProgress from 'nprogress'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -18,6 +19,17 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
   ],
+})
+
+// Start NProgress before each route
+router.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
+
+// Finish NProgress after each route
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router
