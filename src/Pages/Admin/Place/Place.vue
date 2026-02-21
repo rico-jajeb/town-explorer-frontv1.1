@@ -27,7 +27,8 @@
 import { reactive, ref } from 'vue'
 import axios from 'axios'
 
-const API_URL = 'http://127.0.0.1:8000/api/add-category'
+// const API_URL = 'http://127.0.0.1:8000/api/add-category'
+const API_URL = 'https://town-explorer-backv1.up.railway.app/api/add-category'
 
 interface PlacePayload {
   name: string
