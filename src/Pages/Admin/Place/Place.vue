@@ -1,5 +1,5 @@
 <template>
-  <header class="mt-4 mx-8">
+  <main class="mt-4 mx-8">
     <nav class="flex" aria-label="Breadcrumb">
       <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li class="inline-flex items-center">
@@ -55,6 +55,7 @@
         </li>
       </ol>
     </nav>
+
     <section class="mt-4 flex justify-between">
       <div>
         <h1 class="mb-2 font-bold text-2xl">Places</h1>
@@ -64,46 +65,13 @@
         <button class="bg-blue-400 px-4 py-2 rounded rounded-2">Add Place</button>
       </div>
     </section>
-  </header>
+
+    <section>
+      <PlaceMap />
+    </section>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import axios from 'axios'
-
-const API_URL = 'http://127.0.0.1:8000/api/add-category'
-
-interface PlacePayload {
-  name: string
-  description: string
-}
-
-const form = reactive<PlacePayload>({
-  name: '',
-  description: '',
-})
-
-const loading = ref(false)
-const message = ref('')
-const error = ref('')
-
-async function submitPlace() {
-  loading.value = true
-  message.value = ''
-  error.value = ''
-
-  try {
-    const res = await axios.post(API_URL, form)
-
-    message.value = res.data.message
-
-    // reset form
-    form.name = ''
-    form.description = ''
-  } catch (err: any) {
-    error.value = err.response?.data?.message || 'Something went wrong while saving.'
-  } finally {
-    loading.value = false
-  }
-}
+import PlaceMap from '@/components/Maps/PlaceMap.vue'
 </script>
