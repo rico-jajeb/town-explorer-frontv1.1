@@ -65,15 +65,45 @@
       </div>
     </section>
   </header>
-
-  <main class="mt-6">
-    <section class="max-w-8xl mx-auto px-1 py-1 rounded-2xl bg-gray-200">
-      <PlaceMap />
-    </section>
-  </main>
 </template>
 
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import PlaceMap from '@/components/Maps/PlaceMap.vue'
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+import axios from 'axios'
+
+const API_URL = 'http://127.0.0.1:8000/api/add-category'
+
+interface PlacePayload {
+  name: string
+  description: string
+}
+
+const form = reactive<PlacePayload>({
+  name: '',
+  description: '',
+})
+
+const loading = ref(false)
+const message = ref('')
+const error = ref('')
+
+async function submitPlace() {
+  loading.value = true
+  message.value = ''
+  error.value = ''
+
+  try {
+    const res = await axios.post(API_URL, form)
+
+    message.value = res.data.message
+
+    // reset form
+    form.name = ''
+    form.description = ''
+  } catch (err: any) {
+    error.value = err.response?.data?.message || 'Something went wrong while saving.'
+  } finally {
+    loading.value = false
+  }
+}
 </script>
