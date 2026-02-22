@@ -1,4 +1,4 @@
 <template>
-  <h1>Hello world</h1>
+  <h1>This is the Admin Page</h1>
 </template>
 <script setup></script>
