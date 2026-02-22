@@ -31,7 +31,7 @@ const router = createRouter({
         {
           path: '/add-place',
           name: 'add-place',
-          component: () => import('@/Pages/Admin/Place/addPlace.vue'),
+          component: () => import('@/Pages/Admin/Place/CategoryPlace.vue'),
         },
       ],
     },

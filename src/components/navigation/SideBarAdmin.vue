@@ -46,7 +46,7 @@
         </li>
         <li>
           <RouterLink
-            to="/add-place"
+            to="/place"
             class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group"
           >
             <svg
@@ -79,8 +79,6 @@
       </ul>
     </div>
   </aside>
-
-  <RouterLink to="/add-place">Place</RouterLink>
 </template>
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
