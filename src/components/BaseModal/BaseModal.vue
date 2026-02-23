@@ -30,7 +30,8 @@
           type="button"
           @click="showModal = true" -->
 
-  <!-- import BaseModal from '@/components/BaseModal/BaseModal.vue'
+  <!-- import { ref } from 'vue'
+          import BaseModal from '@/components/BaseModal/BaseModal.vue'
 const showModal = ref(false) -->
 </template>
 

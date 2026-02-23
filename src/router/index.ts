@@ -30,8 +30,13 @@ const router = createRouter({
         },
         {
           path: '/add-place',
-          name: 'add-place',
+          name: '/add-place',
           component: () => import('@/Pages/Admin/Place/AddPlace.vue'),
+        },
+        {
+          path: '/add-place-category',
+          name: '/add-place-category',
+          component: () => import('@/Pages/Admin/Place/CategoryPlace.vue'),
         },
       ],
     },

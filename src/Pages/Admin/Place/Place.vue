@@ -64,9 +64,8 @@
         <p class="text-body">Manage and monitor all locationin your town.</p>
       </div>
       <div class="sm:flex gap-4 sm:items-center sm:mt-0 mt-4">
-        <button
-          type="button"
-          @click="showModal = true"
+        <RouterLink
+          to="/add-place-category"
           class="flex items-center sm:mb-0 mb-2 px-2 py-1.5 bg-green-300 text-body rounded-base hover:bg-green-500 hover:text-black group"
         >
           <svg
@@ -86,7 +85,7 @@
           </svg>
 
           <span class="ms-3">Add Category</span>
-        </button>
+        </RouterLink>
         <RouterLink
           to="/add-place"
           class="flex items-center bg-green-300 px-2 py-1.5 text-body rounded-base hover:bg-green-500 hover:text-black group"
