@@ -232,7 +232,7 @@
           </div>
         </section>
         <section class="grid grid-cols-2 mt-4 gap-8">
-          <div>
+          <div class="sm:col-span-1 col-span-2">
             <label for="start-time" class="block mb-2 text-sm font-medium text-heading"
               >Opening Hours <span class="text-red-600">*</span></label
             >
@@ -269,7 +269,7 @@
               />
             </div>
           </div>
-          <div>
+          <div class="sm:col-span-1 col-span-2">
             <label for="end-time" class="block mb-2 text-sm font-medium text-heading"
               >Closing Hours <span class="text-red-600">*</span></label
             >
@@ -346,7 +346,7 @@
 
       <!-- amo ini kanan Visisbility Status -->
       <section
-        class="sm:col-span-2 col-span-6 bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs"
+        class="sm:col-span-2 col-span-6 h-46 bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs"
       >
         <h1 class="text-2xl font-bold">Visibility Status</h1>
 
@@ -390,6 +390,7 @@
       <PlaceMap />
     </section>
 
+    <!-- amo adi an submit button -->
     <section class="mt-8 mb-8">
       <button class="flex bg-green-300 px-4 py-2 rounded-sm">
         <svg

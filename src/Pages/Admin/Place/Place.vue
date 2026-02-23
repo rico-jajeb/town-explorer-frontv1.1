@@ -57,17 +57,19 @@
       </ol>
     </nav>
 
-    <!-- amo ini an header an -->
+    <!-- amo ini an header aadi an button like add category , place -->
     <section class="mt-4 sm:flex sm:justify-between">
       <div>
         <h1 class="mb-2 font-bold text-2xl">Place's</h1>
         <p class="text-body">Manage and monitor all locationin your town.</p>
       </div>
       <div class="sm:flex gap-4 sm:items-center sm:mt-0 mt-4">
-        <RouterLink
-          to="/place"
-          class="flex items-center px-2 py-1.5 bg-green-300 text-body rounded-base hover:bg-green-500 hover:text-black group"
-          ><svg
+        <button
+          type="button"
+          @click="showModal = true"
+          class="flex items-center sm:mb-0 mb-2 px-2 py-1.5 bg-green-300 text-body rounded-base hover:bg-green-500 hover:text-black group"
+        >
+          <svg
             class="w-6 h-6 text-gray-800 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +86,7 @@
           </svg>
 
           <span class="ms-3">Add Category</span>
-        </RouterLink>
+        </button>
         <RouterLink
           to="/add-place"
           class="flex items-center bg-green-300 px-2 py-1.5 text-body rounded-base hover:bg-green-500 hover:text-black group"
@@ -128,6 +130,11 @@
         <RecentActivitiyPlace />
       </div>
     </section>
+
+    <!-- amo ini an kanan Category Modal -->
+    <BaseModal v-model="showModal">
+      <CategoryPlaceForm />
+    </BaseModal>
   </main>
 </template>
 
@@ -136,6 +143,11 @@ import PlaceMap from '@/components/Maps/PlaceMap.vue'
 import PlaceCard from './PlaceCard.vue'
 import PlaceTable from './PlaceTable.vue'
 import RecentActivitiyPlace from './RecentActivitiyPlace.vue'
+import CategoryPlaceForm from './CategoryPlaceForm.vue'
 
 import { RouterLink, RouterView } from 'vue-router'
+
+import { ref } from 'vue'
+import BaseModal from '@/components/BaseModal/BaseModal.vue'
+const showModal = ref(false)
 </script>
