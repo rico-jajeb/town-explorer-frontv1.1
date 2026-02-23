@@ -1,5 +1,6 @@
 <template>
   <main class="mt-4 mx-8">
+    <!-- Breadcrump ini -->
     <nav class="flex" aria-label="Breadcrumb">
       <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li class="inline-flex items-center">
@@ -56,12 +57,13 @@
       </ol>
     </nav>
 
-    <section class="mt-4 flex justify-between">
+    <!-- amo ini an header an -->
+    <section class="mt-4 sm:flex sm:justify-between">
       <div>
         <h1 class="mb-2 font-bold text-2xl">Places</h1>
         <p class="text-body">Manage and monitor all locationin your town</p>
       </div>
-      <div class="flex gap-4 items-center">
+      <div class="sm:flex gap-4 sm:items-center sm:mt-0 mt-4">
         <form>
           <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
             >Search</label
@@ -98,7 +100,7 @@
         <button
           id="dropdownDefaultButton"
           data-dropdown-toggle="dropdown"
-          class="h-12 shrink-0 inline-flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none"
+          class="sm:mt-0 mt-4 sm:mr-0 mr-4 h-12 shrink-0 inline-flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none"
           type="button"
         >
           <svg
@@ -177,12 +179,24 @@
       </div>
     </section>
 
+    <!-- amo ini liwat an Place stats Card -->
     <section class="mt-8">
       <PlaceCard />
     </section>
 
+    <!-- amo liwat ini an kanan place table -->
     <section class="mt-8">
-      <PlaceMap />
+      <PlaceTable />
+    </section>
+
+    <!-- amo ini liwat an kanan geolocation map -->
+    <section class="mt-8 mb-8 grid grid-cols-6 gap-8">
+      <div class="col-span-4">
+        <PlaceMap />
+      </div>
+      <div class="col-span-2">
+        <RecentActivitiyPlace />
+      </div>
     </section>
   </main>
 </template>
@@ -190,4 +204,6 @@
 <script setup lang="ts">
 import PlaceMap from '@/components/Maps/PlaceMap.vue'
 import PlaceCard from './PlaceCard.vue'
+import PlaceTable from './PlaceTable.vue'
+import RecentActivitiyPlace from './RecentActivitiyPlace.vue'
 </script>
