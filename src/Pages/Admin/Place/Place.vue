@@ -141,8 +141,7 @@
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 
-// const API_URL = 'http://127.0.0.1:8000/api/add-category'
-const API_URL = 'https://town-explorer-backv1.up.railway.app/api/add-category'
+const API_URL = 'https://town-explorer-backv1.onrender.com/api/add-category'
 
 import BaseModal from '@/components/BaseModal/BaseModal.vue'
 

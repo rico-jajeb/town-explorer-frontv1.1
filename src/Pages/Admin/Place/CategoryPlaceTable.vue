@@ -41,7 +41,9 @@ const totalPages = ref(1)
 // Fetch categories from API
 const fetchCategories = async (page = 1) => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/display-category?page=${page}`)
+    const res = await axios.get(
+      `https://town-explorer-backv1.onrender.com/api/display-category?page=${page}`,
+    )
 
     // Update state
     categories.value = res.data.data // paginated items
