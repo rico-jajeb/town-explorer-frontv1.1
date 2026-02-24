@@ -22,7 +22,8 @@ const router = createRouter({
       path: '/add-place',
       name: 'add-place',
       component: () => import('@/Pages/Admin/Place/AddPlace.vue'),
-
+    },
+    {
       path: '/admin',
       name: 'admin',
       component: AdminLayout,
