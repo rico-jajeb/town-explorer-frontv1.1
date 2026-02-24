@@ -5,7 +5,8 @@
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
 
-let map = null
+// Global map cache
+let cachedMap = null
 
 function loadMapboxScript() {
   return new Promise((resolve, reject) => {
@@ -27,31 +28,35 @@ function loadMapboxScript() {
 onMounted(async () => {
   try {
     const mapboxgl = await loadMapboxScript()
+    mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
-    const token = import.meta.env.VITE_MAPBOX_TOKEN
-    mapboxgl.accessToken = token
+    if (!cachedMap) {
+      cachedMap = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/jajeb/cmlxuu05e000q01ptdtg27n1t',
+        projection: 'globe',
+        zoom: 16,
+        center: [124.886215, 11.136365],
+      })
 
-    map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/jajeb/cmlxuu05e000q01ptdtg27n1t',
-      projection: 'globe',
-      zoom: 16,
-      center: [124.886215, 11.136365],
-    })
+      cachedMap.addControl(new mapboxgl.NavigationControl())
+      cachedMap.scrollZoom.disable()
 
-    map.addControl(new mapboxgl.NavigationControl())
-    map.scrollZoom.disable()
-
-    map.on('style.load', () => {
-      map.setFog({})
-    })
+      cachedMap.on('style.load', () => {
+        cachedMap.setFog({})
+      })
+    } else {
+      // If map is already created, just reattach it to the container
+      cachedMap.getContainer().id = 'map' // reattach container
+    }
   } catch (err) {
     console.error('Failed to load Mapbox GL JS', err)
   }
 })
 
 onBeforeUnmount(() => {
-  if (map) map.remove()
+  // don't remove the map completely, just detach from DOM
+  if (cachedMap) cachedMap.getContainer().remove()
 })
 </script>
 

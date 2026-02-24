@@ -138,15 +138,18 @@
 </template>
 
 <script setup lang="ts">
-import PlaceMap from '@/components/Maps/PlaceMap.vue'
+import { ref } from 'vue'
+import { RouterLink, RouterView } from 'vue-router'
+
+import BaseModal from '@/components/BaseModal/BaseModal.vue'
+
+import { defineAsyncComponent } from 'vue'
+
+const PlaceMap = defineAsyncComponent(() => import('@/components/Maps/PlaceMap.vue'))
 import PlaceCard from './PlaceCard.vue'
 import PlaceTable from './PlaceTable.vue'
 import RecentActivitiyPlace from './RecentActivitiyPlace.vue'
 import CategoryPlaceForm from './CategoryPlaceForm.vue'
 
-import { RouterLink, RouterView } from 'vue-router'
-
-import { ref } from 'vue'
-import BaseModal from '@/components/BaseModal/BaseModal.vue'
 const showModal = ref(false)
 </script>
