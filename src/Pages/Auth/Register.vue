@@ -1,10 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import axios from 'axios'
-
-// ✅ Set global Axios defaults
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost:8000'
+import API from '@/axios'
 
 const form = reactive({
   name: '',
@@ -22,10 +18,10 @@ async function register() {
 
   try {
     // 1. Get CSRF cookie first
-    await axios.get('/sanctum/csrf-cookie')
+    await API.get('/sanctum/csrf-cookie')
 
     // 2. Send register request
-    await axios.post('/api/register', form)
+    await API.post('/api/register', form)
 
     alert('Registration successful!444')
 

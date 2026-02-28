@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import axios from 'axios'
 
-axios.defaults.withCredentials = true
-axios.defaults.withXSRFToken = true
+import { onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth/useAuth'
+import Loader from '@/components/Loading/Loader.vue'
+
+const auth = useAuthStore()
+
+onMounted(() => {
+  if (!auth.initialized) {
+    auth.fetchUser()
+  }
+})
 </script>
 
 <template>

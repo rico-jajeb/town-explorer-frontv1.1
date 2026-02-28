@@ -1,4 +1,5 @@
 <template>
+  <HeaderUser />
   <h1 class="pt-8">This is the Home Page</h1>
   <nav class="flex gap-8">
     <RouterLink to="/">Home</RouterLink>
@@ -8,4 +9,6 @@
     <RouterLink to="/login">login</RouterLink>
   </nav>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderUser from '@/components/navigation/User/HeaderUser.vue'
+</script>

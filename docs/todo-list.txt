@@ -1,3 +1,26 @@
+    feb 8, ayda an pag nag login an user, dapat an hello username, 
+    pag na refresh an page same la gihap or like himo a na ma cache 
+    an previous user name tapos run a ha background an pag fetch or an query para han new
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     pag ayad hin roles table, ngan pivot table, bali an roles table ada mo ig store an  adi.
 
     id | name              | description
