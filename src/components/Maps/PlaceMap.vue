@@ -62,8 +62,8 @@ onBeforeUnmount(() => {
 
 <style scoped>
 #map {
-  width: 100%;
-  height: 70vh;
+  /* width: 100%;
+  height: 70vh; */
   border-radius: 1%;
 }
 </style>

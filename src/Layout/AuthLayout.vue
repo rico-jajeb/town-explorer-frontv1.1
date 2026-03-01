@@ -2,7 +2,7 @@
   <main class="grid grid-cols-2 h-screen">
     <!-- Left Panel - Illustration & Branding -->
     <section
-      class="col-span-1 relative bg-teal-700 bg-brand-teal overflow-hidden flex flex-col justify-between p-12 text-white"
+      class="sm:col-span-1 col-span-2 relative bg-teal-700 bg-brand-teal overflow-hidden flex flex-col justify-between p-12 text-white"
     >
       <!-- Abstract Background Elements -->
       <div class="absolute inset-0 opacity-10 pointer-events-none">
@@ -70,8 +70,19 @@
     </section>
 
     <!-- Right Panel - Add your form manually -->
-    <section class="col-span-1 p-8 flex justify-center items-center">
+    <section class="sm:col-span-1 col-span-2 p-8 flex justify-center items-center relative">
       <RouterView />
+      <div
+        class="sm:block hidden text-gray-800 absolute bottom-8 sm:right-1/9 animate-[bounce_8s_infinite] opacity-20"
+      >
+        <MapPinIcon />
+      </div>
+
+      <div
+        class="text-gray-800 absolute top-1/12 sm:left-1/5 left-1/8 animate-[bounce_10s_infinite_reverse] opacity-10"
+      >
+        <RocketIcon />
+      </div>
     </section>
   </main>
 </template>
@@ -83,4 +94,6 @@ import MapPinIcon from '@/components/icons/MapPinIcon.vue'
 import CompassIcon from '@/components/icons/CompassIcon.vue'
 import NavigationIcon from '@/components/icons/NavigationIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
+import RocketIcon from '@/components/icons/RocketIcon.vue'
+import PlaceMap from '@/components/Maps/PlaceMap.vue'
 </script>

@@ -91,7 +91,11 @@
       <RouterLink to="/forgot" class="text-teal-700 mb-2">Forgot password? </RouterLink>
     </div>
 
-    <button type="submit" class="bg-orange-400 py-2 rounded text-white">Sign In</button>
+    <!-- <button type="submit" class="bg-orange-400 py-2 rounded text-white">Sign In</button>
+   -->
+    <button :disabled="loading" class="bg-orange-400 mt-4 mb-2 py-2 px-6 rounded w-full text-white">
+      {{ loading ? 'Signing in...' : 'Sign In' }}
+    </button>
   </form>
 </template>
 
@@ -104,12 +108,17 @@ const auth = useAuthStore()
 const email = ref('')
 const password = ref('')
 
+const loading = ref(false)
+
 const loginUser = async () => {
+  loading.value = true
   try {
     await auth.login(email.value, password.value)
     alert('Login successful')
   } catch (err: any) {
     alert(err.response?.data?.message || 'Login failed')
+  } finally {
+    loading.value = false
   }
 }
 

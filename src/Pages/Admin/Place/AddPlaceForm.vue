@@ -387,7 +387,9 @@
         </svg>
         Pin the place Location
       </h1>
-      <PlaceMap />
+      <div class="w-full h-96">
+        <PlaceMap />
+      </div>
     </section>
 
     <!-- amo adi an submit button -->

@@ -1,5 +1,5 @@
 <template>
-  <section class="col-span-1 p-8 flex justify-center items-center">
+  <section class="col-span-1 flex justify-center items-center">
     <section
       class="max-w-lg bg-neutral-primary-soft px-10 py-6 border border-gray-100 rounded-2xl shadow-2xl"
     >
@@ -36,8 +36,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import Loader from '@/components/Loading/Loader.vue'
 
 const auth = useAuthStore()
-
-onMounted(() => auth.fetchUser())
 
 const logoutUser = () => auth.logout()
 </script>
