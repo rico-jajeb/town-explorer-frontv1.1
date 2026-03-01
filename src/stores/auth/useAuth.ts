@@ -57,9 +57,14 @@ export const useAuthStore = defineStore('auth', {
     },
 
     async logout() {
-      await this.ensureCsrf()
-      await API.post('/api/logout')
-      this.user = null
+      try {
+        await this.ensureCsrf()
+        await API.post('/api/logout')
+      } catch {
+        this.user = null
+      } finally {
+        this.user = null
+      }
     },
   },
 })

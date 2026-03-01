@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import API from '@/axios'
+import API from '@/lib/axios'
 
 const form = reactive({
   name: '',
