@@ -3,6 +3,7 @@ import NProgress from 'nprogress'
 import HomeView from '../views/HomeView.vue'
 import Home from '@/Pages/Home.vue'
 import AdminLayout from '@/Layout/AdminLayout.vue'
+import AuthLayout from '@/Layout/AuthLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,16 +17,6 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: () => import('../Pages/Auth/Register.vue'),
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../Pages/Auth/Login.vue'),
     },
 
     {
@@ -47,6 +38,28 @@ const router = createRouter({
           path: '/add-place-category',
           name: '/add-place-category',
           component: () => import('@/Pages/Admin/Place/CategoryPlace.vue'),
+        },
+      ],
+    },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: AuthLayout,
+      children: [
+        {
+          path: '/register',
+          name: 'register',
+          component: () => import('../Pages/Auth/Register.vue'),
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: () => import('../Pages/Auth/Login.vue'),
+        },
+        {
+          path: '/forgot',
+          name: 'forgot',
+          component: () => import('../Pages/Auth/ForgotPassword.vue'),
         },
       ],
     },

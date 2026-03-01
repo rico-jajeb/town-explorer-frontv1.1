@@ -7,8 +7,10 @@
     <RouterLink to="/admin">Admin</RouterLink>
     <RouterLink to="/register">register</RouterLink>
     <RouterLink to="/login">login</RouterLink>
+    <Logout />
   </nav>
 </template>
 <script setup lang="ts">
 import HeaderUser from '@/components/navigation/User/HeaderUser.vue'
+import Logout from './Auth/Logout.vue'
 </script>
