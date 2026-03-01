@@ -10,6 +10,7 @@
     <Logout />
   </nav>
 </template>
+
 <script setup lang="ts">
 import HeaderUser from '@/components/navigation/User/HeaderUser.vue'
 import Logout from './Auth/Logout.vue'

@@ -2,39 +2,19 @@
   <form @submit.prevent="loginUser" class="flex flex-col gap-3">
     <div class="mt-4 mb-4">
       <label for="input-group-1" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
-      <div class="relative">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <svg
-            class="w-4 h-4 text-body"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
-              d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
-            />
-          </svg>
-        </div>
-
-        <input
-          v-model="email"
-          type="email"
-          id="input-group-1"
-          class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
-          placeholder="name@gmail.com"
-        />
-      </div>
+      <InputText
+        v-model="email"
+        class="w-full"
+        name="username"
+        type="email"
+        placeholder="name@gmail.com"
+      />
     </div>
 
     <div class="mb-2 relative">
       <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Password</label>
-      <input
+
+      <InputText
         :type="showPassword ? 'text' : 'password'"
         v-model="password"
         id="password"
@@ -103,6 +83,8 @@
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth/useAuth'
 import { RouterLink, RouterView } from 'vue-router'
+
+import Password from 'primevue/password'
 
 const auth = useAuthStore()
 const email = ref('')
