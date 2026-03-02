@@ -13,6 +13,9 @@ import Aura from '@primeuix/themes/aura'
 import 'primeicons/primeicons.css'
 import InputText from 'primevue/inputtext'
 
+import Toast from 'primevue/toast'
+import ToastService from 'primevue/toastservice'
+
 const app = createApp(App)
 
 app.use(createPinia())
@@ -26,5 +29,7 @@ app.use(PrimeVue, {
 
 // Global registration
 app.component('InputText', InputText)
+app.use(ToastService) // 🔹 Install ToastService globally
+app.component('Toast', Toast) // 🔹 Register Toast component globally
 
 app.mount('#app')

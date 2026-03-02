@@ -84,8 +84,12 @@ import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth/useAuth'
 import { RouterLink, RouterView } from 'vue-router'
 
-import Password from 'primevue/password'
+import { useToast } from 'primevue/usetoast'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
+const toast = useToast()
 const auth = useAuthStore()
 const email = ref('')
 const password = ref('')
@@ -96,9 +100,21 @@ const loginUser = async () => {
   loading.value = true
   try {
     await auth.login(email.value, password.value)
-    alert('Login successful')
+
+    toast.add({
+      severity: 'success',
+      summary: 'Sign In',
+      detail: `Sign In Successfully`,
+      life: 10000, // duration in ms
+    })
+    router.push('/')
   } catch (err: any) {
-    alert(err.response?.data?.message || 'Login failed')
+    toast.add({
+      severity: 'error',
+      summary: 'Sign In',
+      detail: `Sign In Failed`,
+      life: 10000, // duration in ms
+    })
   } finally {
     loading.value = false
   }

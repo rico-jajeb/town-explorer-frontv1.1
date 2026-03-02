@@ -60,7 +60,7 @@ const showPassword = ref(false)
           <label for="first_name" class="block mb-2.5 text-sm font-medium text-heading"
             >User name</label
           >
-          <input
+          <InputText
             v-model="form.name"
             type="text"
             id="first_name"
@@ -74,7 +74,7 @@ const showPassword = ref(false)
           <label for="first_name" class="block mb-2.5 text-sm font-medium text-heading"
             >Email</label
           >
-          <input
+          <InputText
             v-model="form.email"
             type="email"
             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
@@ -88,7 +88,7 @@ const showPassword = ref(false)
           <label for="password" class="block mb-2.5 text-sm font-medium text-heading"
             >Password</label
           >
-          <input
+          <InputText
             :type="showPassword ? 'text' : 'password'"
             v-model="form.password"
             id="password"
@@ -153,7 +153,7 @@ const showPassword = ref(false)
             >Confirm Password</label
           >
 
-          <input
+          <InputText
             v-model="form.password_confirmation"
             type="password"
             placeholder="Confirm Password"

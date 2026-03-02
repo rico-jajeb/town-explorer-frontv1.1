@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import HeaderUser from '@/components/navigation/User/HeaderUser.vue'
 import Logout from './Auth/Logout.vue'
 </script>

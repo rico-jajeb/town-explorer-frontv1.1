@@ -5,6 +5,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import { onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth/useAuth'
 import Loader from '@/components/Loading/Loader.vue'
+import { Toast } from 'primevue'
 
 const auth = useAuthStore()
 
@@ -17,6 +18,7 @@ onMounted(() => {
 
 <template>
   <RouterView />
+  <Toast />
 </template>
 
 <!-- <style scoped>
