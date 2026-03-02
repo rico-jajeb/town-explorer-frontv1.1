@@ -1,43 +1,9 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import API from '@/lib/axios'
 import { RouterLink, RouterView } from 'vue-router'
+import { useRegister } from '@/composables/Auth/useRegister'
 
-const form = reactive({
-  name: '',
-  email: '',
-  password: '',
-  password_confirmation: '',
-})
-
-const loading = ref(false)
-const errors = ref({})
-
-async function register() {
-  loading.value = true
-  errors.value = {}
-
-  try {
-    // 1. Get CSRF cookie first
-    await API.get('/sanctum/csrf-cookie')
-
-    // 2. Send register request
-    await API.post('/api/register', form)
-
-    alert('Registration successful!444')
-
-    // optionally redirect
-    // router.push('/dashboard')
-  } catch (err) {
-    if (err.response?.data?.errors) {
-      errors.value = err.response.data.errors
-    } else {
-      alert('Registration failed')
-    }
-  } finally {
-    loading.value = false
-  }
-}
+const { form, loading, errors, register } = useRegister()
 
 const showPassword = ref(false)
 </script>

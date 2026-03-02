@@ -71,9 +71,10 @@
       <RouterLink to="/forgot" class="text-teal-700 mb-2">Forgot password? </RouterLink>
     </div>
 
-    <!-- <button type="submit" class="bg-orange-400 py-2 rounded text-white">Sign In</button>
-   -->
-    <button :disabled="loading" class="bg-orange-400 mt-4 mb-2 py-2 px-6 rounded w-full text-white">
+    <button
+      :disabled="loading"
+      class="bg-orange-400 hover:bg-orange-500 mt-4 mb-2 py-2 px-6 rounded w-full text-white"
+    >
       {{ loading ? 'Signing in...' : 'Sign In' }}
     </button>
   </form>
@@ -81,44 +82,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useAuthStore } from '@/stores/auth/useAuth'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
+import { useLogin } from '@/composables/Auth/useLogin'
 
-import { useToast } from 'primevue/usetoast'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-const toast = useToast()
-const auth = useAuthStore()
-const email = ref('')
-const password = ref('')
-
-const loading = ref(false)
-
-const loginUser = async () => {
-  loading.value = true
-  try {
-    await auth.login(email.value, password.value)
-
-    toast.add({
-      severity: 'success',
-      summary: 'Sign In',
-      detail: `Sign In Successfully`,
-      life: 10000, // duration in ms
-    })
-    router.push('/')
-  } catch (err: any) {
-    toast.add({
-      severity: 'error',
-      summary: 'Sign In',
-      detail: `Sign In Failed`,
-      life: 10000, // duration in ms
-    })
-  } finally {
-    loading.value = false
-  }
-}
-
+const { email, password, loading, loginUser } = useLogin()
 const showPassword = ref(false)
 </script>
