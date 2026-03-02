@@ -1,11 +1,11 @@
 <template>
   <main class="grid grid-cols-8 gap-4">
     <div
-      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="sm:col-span-2 col-span-8 bg-white block max-w-sm p-6 border border-gray-300 rounded-xl shadow-lg"
     >
       <span
         ><svg
-          class="w-8 h-8 text-gray-800 dark:text-white"
+          class="w-8 h-8 text-teal-600 dark:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -25,11 +25,11 @@
       <p class="text-body">Total Places</p>
     </div>
     <div
-      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-gray-300 rounded-xl shadow-lg"
     >
       <span
         ><svg
-          class="w-8 h-8 text-gray-800 dark:text-white"
+          class="w-8 h-8 text-teal-600 dark:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -49,11 +49,11 @@
       <p class="text-body">Pending Review</p>
     </div>
     <div
-      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-gray-300 rounded-xl shadow-lg"
     >
       <span
         ><svg
-          class="w-8 h-8 text-gray-800 dark:text-white"
+          class="w-8 h-8 text-teal-600 dark:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -73,11 +73,11 @@
       <p class="text-body">Verified</p>
     </div>
     <div
-      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="sm:col-span-2 col-span-8 bg-neutral-primary-soft block max-w-sm p-6 border border-gray-300 rounded-xl shadow-lg"
     >
       <span
         ><svg
-          class="w-8 h-8 text-gray-800 dark:text-white"
+          class="w-8 h-8 text-teal-600 dark:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -96,4 +96,6 @@
     </div>
   </main>
 </template>
-<script setup></script>
+<script setup>
+import Card from 'primevue/card'
+</script>
