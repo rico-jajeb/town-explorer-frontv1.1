@@ -41,6 +41,11 @@ const router = createRouter({
           name: '/add-place-category',
           component: () => import('@/Pages/Admin/Place/CategoryPlace.vue'),
         },
+        {
+          path: '/user-management',
+          name: '/user-management',
+          component: () => import('@/Pages/Admin/UserManagement/UserManagement.vue'),
+        },
       ],
     },
 

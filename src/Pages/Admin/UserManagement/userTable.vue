@@ -14,14 +14,12 @@
     >
       <!-- Search Bar -->
       <template #header>
-        <div class="flex align-items-center gap-2">
-          <InputText
-            v-model="filters.global.value"
-            placeholder="Search..."
-            class="p-inputtext-sm"
-          />
-          <i class="pi pi-search" />
-        </div>
+        <IconField>
+          <InputIcon>
+            <i class="pi pi-search" />
+          </InputIcon>
+          <InputText v-model="filters.global.value" placeholder="Search..." />
+        </IconField>
       </template>
 
       <!-- Name Column -->
@@ -46,19 +44,19 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
 import { CustomerService } from '@/service/CustomerService'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
 import InputText from 'primevue/inputtext'
 
-// Data and selection
 const customers = ref([])
 const selectedCustomer = ref(null)
 
-// Filters aligned with real data fields
+/* Filters aligned with real data fields */
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 
@@ -73,23 +71,7 @@ const filters = ref({
   },
 })
 
-// Fetch categories from API
-const fetchCategories = async (page = 1) => {
-  try {
-    const res = await axios.get(
-      `https://town-explorer-backv1.onrender.com/api/display-category?page=${page}`,
-    )
-    customers.value = res.data.data || []
-  } catch (error) {
-    console.error('Error fetching categories:', error)
-  }
-}
-
 onMounted(async () => {
-  // If you want to use your service
-  // customers.value = await CustomerService.getCustomersSmall()
-
-  // Or fetch directly from API
-  await fetchCategories()
+  customers.value = await CustomerService.getCustomersSmall()
 })
 </script>
