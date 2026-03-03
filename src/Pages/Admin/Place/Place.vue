@@ -116,7 +116,7 @@
     </section>
 
     <!-- amo liwat ini an kanan place table -->
-    <section class="mt-8">
+    <section class="mt-8 border border-gray-300 rounded-2xl px-8 py-8">
       <PlaceTable />
     </section>
 

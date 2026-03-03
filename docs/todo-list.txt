@@ -1,0 +1,40 @@
+    feb 8, ayda an pag nag login an user, dapat an hello username, 
+    pag na refresh an page same la gihap or like himo a na ma cache 
+    an previous user name tapos run a ha background an pag fetch or an query para han new
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    pag ayad hin roles table, ngan pivot table, bali an roles table ada mo ig store an  adi.
+
+    id | name              | description
+    -----------------------------------------------
+    1  | super_admin       | Full access to the system
+    2  | staff_admin       | Can approve content and manage users
+    3  | resort_owner      | Can manage their own resort listings
+    4  | tourist_spot_owner| Can manage their own tourist spot listings
+    5  | tourist           | Normal app user, read-only
+
+    tapos an roles_user table adi, 
+
+    id | user_id | role_id | created_at | updated_at
+    -----------------------------------------------
+    1  | 1       | 1       | ...
+    2  | 2       | 2       | ...
+    3  | 3       | 3       | ...

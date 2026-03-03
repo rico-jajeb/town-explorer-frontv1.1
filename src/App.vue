@@ -1,10 +1,24 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+import { onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth/useAuth'
+import Loader from '@/components/Loading/Loader.vue'
+import { Toast } from 'primevue'
+
+const auth = useAuthStore()
+
+onMounted(() => {
+  if (!auth.initialized) {
+    auth.fetchUser()
+  }
+})
 </script>
 
 <template>
   <RouterView />
+  <Toast />
 </template>
 
 <!-- <style scoped>

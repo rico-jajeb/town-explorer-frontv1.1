@@ -117,7 +117,7 @@
       </div>
     </section>
 
-    <section class="mt-8">
+    <section class="mt-8 border border-gray-300 rounded-2xl px-8 py-8">
       <CategoryPlaceTable />
     </section>
   </main>
