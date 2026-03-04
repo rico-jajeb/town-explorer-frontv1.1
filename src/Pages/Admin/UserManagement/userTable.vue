@@ -30,9 +30,9 @@
       </Column>
 
       <!-- Description Column -->
-      <Column field="description" header="Description" sortable style="width: 50%">
+      <Column field="email" header="Email" sortable style="width: 50%">
         <template #filter="{ filterModel }">
-          <InputText v-model="filterModel.value" placeholder="Search description" />
+          <InputText v-model="filterModel.value" placeholder="Search email" />
         </template>
       </Column>
 
@@ -45,6 +45,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { CustomerService } from '@/service/CustomerService'
+import { UserService } from '@/service/users/userService'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 
 import DataTable from 'primevue/datatable'
@@ -65,13 +66,13 @@ const filters = ref({
     constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
   },
 
-  description: {
+  email: {
     operator: FilterOperator.AND,
     constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],
   },
 })
 
 onMounted(async () => {
-  customers.value = await CustomerService.getCustomersSmall()
+  customers.value = await UserService.getCustomersSmall()
 })
 </script>
