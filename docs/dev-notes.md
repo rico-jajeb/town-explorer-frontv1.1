@@ -117,3 +117,124 @@ Higher security: Tokens are not stored in localStorage or exposed to JavaScript.
 Simpler frontend: Automatic cookie handling eliminates manual token management.
 
 CSRF protection built-in: No extra configuration needed for same-origin SPAs.
+
+User Management Module Documentation
+
+1. Overview
+
+The User Management Module handles retrieval, caching, and management of user data within the system. This module allows the frontend to efficiently display user lists, minimize API calls, and maintain reactive state while supporting temporary caching during a user session.
+
+Key features:
+
+Fetch and display user lists from the API.
+
+In-memory caching using Pinia for reactive state.
+
+Optional session-based caching (sessionStorage) to persist data across page reloads.
+
+Force refresh support for updates or administrative changes.
+
+2. Module Structure
+   Pinia Store
+
+File: stores/userStore.ts
+
+Purpose: Manage user state and provide actions to fetch, refresh, and cache user data.
+
+State
+
+Property Type Description
+users any[] Array of users fetched from the API
+usersLoaded boolean Tracks if users have been loaded into store
+loading boolean Indicates if the store is currently fetching data
+
+Actions
+
+Method Parameters Description
+fetchUsers(force = false) force: boolean Fetches user list from API. If force = true, ignores cache and reloads fresh data. Stores results in Pinia and optionally in sessionStorage.
+Service Layer
+
+File: service/users/userService.ts
+
+Purpose: Handles API communication for fetching and updating user data.
+
+Methods
+
+Method Description
+getCustomersSmall() Fetches a small user list from the protected API endpoint /api/display-user and maps the data for frontend consumption.
+updateUser(userId, data) (Optional) Updates user information via API. Typically used alongside fetchUsers(true) to refresh store after changes. 3. Caching Strategy
+In-memory caching (Pinia)
+
+Users are stored in Pinia’s reactive state.
+
+Reduces unnecessary API calls during a session.
+
+Data is reactive — any component accessing users will automatically update.
+
+Session storage caching (optional)
+
+sessionStorage persists data within the current browser tab.
+
+Survives page reloads, cleared automatically when the tab closes.
+
+Recommended for improving page reload performance without server-side caching.
+
+TTL can be implemented (e.g., 5 minutes) to ensure cache doesn’t become stale.
+
+Example implementation:
+
+const cached = sessionStorage.getItem('users');
+if (cached) {
+const parsed = JSON.parse(cached);
+if (Date.now() - parsed.timestamp < 5 _ 60 _ 1000) {
+this.users = parsed.data;
+this.usersLoaded = true;
+return;
+}
+} 4. Usage Examples
+Fetching Users
+import { useUserStore } from '@/stores/userStore'
+
+const userStore = useUserStore()
+
+// Fetch users with caching
+await userStore.fetchUsers()
+
+// Force refresh after updating a user
+await userStore.fetchUsers(true)
+Updating Users
+import { UserService } from '@/service/users/userService'
+
+// Update user info in API
+await UserService.updateUser(userId, updatedData)
+
+// Refresh the Pinia store to reflect changes
+await userStore.fetchUsers(true) 5. Best Practices
+
+Use fetchUsers() by default for efficient caching.
+
+Use fetchUsers(true) after any API update to ensure data consistency.
+
+Use sessionStorage TTL to avoid stale data if caching is enabled.
+
+Avoid storing large datasets in sessionStorage to prevent performance issues.
+
+Keep reactive Pinia state for frontend components; sessionStorage is only a backup for reloads.
+
+6. Technical Notes
+
+Designed for client-side caching; no server-side cache is required.
+
+TTL or cache invalidation is optional but recommended.
+
+The module is fully reactive and modular, supporting scaling to larger user lists or additional user-related actions.
+
+✅ Outcome
+
+Reduced API calls
+
+Improved page performance and UX
+
+Easy to maintain and extend
+
+Supports real-time updates via forced refresh

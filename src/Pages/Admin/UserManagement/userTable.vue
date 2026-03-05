@@ -3,7 +3,7 @@
     <DataTable
       v-model:filters="filters"
       v-model:selection="selectedCustomer"
-      :value="customers"
+      :value="userStore.users"
       paginator
       :rows="5"
       filterDisplay="menu"
@@ -48,13 +48,16 @@ import { CustomerService } from '@/service/CustomerService'
 import { UserService } from '@/service/users/userService'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 
+import { useUserStore } from '@/stores/userStore'
+
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import InputText from 'primevue/inputtext'
 
-const customers = ref([])
+// const customers = ref([])
+const userStore = useUserStore()
 const selectedCustomer = ref(null)
 
 /* Filters aligned with real data fields */
@@ -72,7 +75,10 @@ const filters = ref({
   },
 })
 
+// onMounted(async () => {
+//   customers.value = await UserService.getCustomersSmall()
+// })
 onMounted(async () => {
-  customers.value = await UserService.getCustomersSmall()
+  await userStore.fetchUsers() // Only fetches if not loaded
 })
 </script>

@@ -1,22 +1,21 @@
 import API from '@/lib/axios'
 
+interface ApiUser {
+  id: number
+  name: string
+  email: string
+}
 export const UserService = {
   async getCustomersSmall() {
     try {
-      const { data } = await API.get('/api/display-user') // protected API
-
-      // Map the data to your desired structure
-      return data.data.map((item: any, index: number) => ({
-        id: index + 1,
+      const { data } = await API.get('/api/display-user')
+      return data.data.map((item: ApiUser, index: number) => ({
+        id: item.id,
         name: item.name,
         email: item.email,
       }))
     } catch (error: any) {
-      if (error.response?.status === 401) {
-        console.log('Error in Displaying users')
-      } else {
-        console.log('Error in Displaying users')
-      }
+      return { success: false, data: null, error: error.message }
     }
   },
 }
